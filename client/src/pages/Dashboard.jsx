@@ -62,7 +62,7 @@ const Dashboard = () => {
           currency={stockDetails.currency}
         />
       </div>
-      <div className="row-span-2 xl:row-span-3">
+      <div className="row-span-2 xl:row-span-3" style={{display:"inline-table"}}>
         <Details details={stockDetails} />
       </div>
     </div>
