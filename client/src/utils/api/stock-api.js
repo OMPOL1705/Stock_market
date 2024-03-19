@@ -38,14 +38,11 @@ export const fetchQuote = async (stockSymbol) => {
 };
 
 export const fetchHistoricalData = async (
-  stockSymbol,
-  resolution,
-  from,
-  to
+  stockSymbol
 ) => {
-  const url = `${basePath}/stock/candle?symbol=${stockSymbol}&resolution=${resolution}&from=${from}&to=${to}&token=${apiKey}`;
+  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stockSymbol}&interval=5min&apikey=NB5SE07UCCPOXASS`;
   const response = await fetch(url);
-
+  
   if (!response.ok) {
     const message = `An error has occured: ${response.status}`;
     throw new Error(message);

@@ -5,7 +5,8 @@ import Overview from "../components/dash/Overview";
 import Chart from "../components/dash/Chart";
 import ThemeContext from "../context/ThemeContext";
 import StockContext from "../context/StockContext";
-import { fetchStockDetails, fetchQuote } from "../utils/api/stock-api";
+import { fetchStockDetails, fetchQuote, fetchHistoricalData } from "../utils/api/stock-api";
+import Graph from "../components/dash/Graph";
 
 const Dashboard = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -13,6 +14,7 @@ const Dashboard = () => {
   const { stockSymbol } = useContext(StockContext);
 
   const [stockDetails, setStockDetails] = useState({});
+  const [data, setData] = useState({});
 
   const [quote, setQuote] = useState({});
 
@@ -37,6 +39,25 @@ const Dashboard = () => {
       }
     };
 
+    const updateStockData = async () => {
+      try {
+        const result = await fetchHistoricalData(stockSymbol);
+        const cur = [
+        ]
+        Object.keys(result.data["Time Series (5min)"]).map(item => {
+                  cur.push({
+                    name : item.toString(),
+                    val : result.data["Time Series (5min)"][item.toString()]["4. close"]
+                  })
+        })
+        setData(cur);
+      } catch (error) {
+        setData({});
+        console.log(error);
+      }
+    };
+
+    updateStockData();
     updateStockDetails();
     updateStockOverview();
   }, [stockSymbol]);
@@ -51,7 +72,8 @@ const Dashboard = () => {
         <Header name={stockDetails.name} />
       </div>
       <div className="md:col-span-2 row-span-4">
-        <Chart />
+        {/* <Chart /> */}
+        <Graph/>
       </div>
       <div>
         <Overview

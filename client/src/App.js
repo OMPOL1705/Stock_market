@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import Graph from "./components/dash/Graph";
 
 function App() {
   const user = localStorage.getItem("token");
@@ -25,6 +26,7 @@ function App() {
             <Routes>
                 {user && <Route path="/" exact element={<Home />} />}
                 <Route path="/login" element={<Login />} />
+                <Route path="/graph" element={<Graph  data={"ibm"}/>} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/" element={<Navigate replace to="/login" />} />
