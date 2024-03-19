@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 import Navbar from '../components/Navbar'
 import BottomNavbar from '../components/BottomNavbar';
 
-const Home = () => {
+const Explore = () => {
   return (
     <>
     <Navbar/>
-    <h1 style={{marginTop:"15vh"}}>Home</h1>
+    <h1 style={{marginTop:"15vh"}}>Explore</h1>
     <BottomNavbar />
     </>
   )
 }
 
-export default Home
+export default Explore

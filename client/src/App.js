@@ -11,6 +11,9 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import Portfolio from './pages/Portfolio';
+import Explore from './pages/Explore';
+import Chat from './pages/Chat';
 import Graph from "./components/dash/Graph";
 
 function App() {
@@ -29,6 +32,9 @@ function App() {
                 <Route path="/graph" element={<Graph  data={"ibm"}/>} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/explore" element={<Explore />} />
+                <Route path="/chat" element={<Chat />} />
                 <Route path="/" element={<Navigate replace to="/login" />} />
             </Routes>
           </Router>
