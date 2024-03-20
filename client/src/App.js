@@ -15,9 +15,10 @@ import Portfolio from './pages/Portfolio';
 import Explore from './pages/Explore';
 import Chat from './pages/Chat';
 import Graph from "./components/dash/Graph";
+import Graphslide from "./components/Graphslide";
 
 function App() {
-  const user = localStorage.getItem("token");
+  // const user = localStorage.getItem("token");
   const [darkMode, setDarkMode] = useState(false);
   const [stockSymbol, setStockSymbol] = useState("FB");
 
@@ -27,15 +28,18 @@ function App() {
         <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
           <Router>
             <Routes>
-                {user && <Route path="/" exact element={<Home />} />}
+                {/* {user && <Route path="/" exact element={<Home />} />} */}
+                <Route path="/" exact element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/graph" element={<Graph  data={"ibm"}/>} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/graphslide" element={<Graphslide />} />
+                <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/explore" element={<Explore />} />
                 <Route path="/chat" element={<Chat />} />
-                <Route path="/" element={<Navigate replace to="/login" />} />
+                {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
             </Routes>
           </Router>
         </StockContext.Provider>

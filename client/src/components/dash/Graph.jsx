@@ -2,13 +2,9 @@ import React from 'react'
 import {
     Area,
     XAxis,
-    YAxis,
-    linearGradient , 
+    YAxis, 
     CartesianGrid,
-    LineChart,
     Label,
-    Legend,
-    Line,
     ResponsiveContainer,
     AreaChart,
     Tooltip,
@@ -750,9 +746,9 @@ const Graph = () => {
                 </linearGradient>
             </defs>
             <XAxis dataKey="name" tick= {false}>
-            <Label value="5 min data" offset={0} position="insideBottom" />
+            {/* <Label value="5 min data" offset={0} position="insideBottom" /> */}
             </XAxis>
-            <YAxis domain = {["dataMin" , "dataMax"]}/>
+            <YAxis tick= {false} domain = {["dataMin" , "dataMax"]}/>
             <CartesianGrid strokeDasharray="3 3" />
             <Tooltip />
             <Area type="monotone" dataKey="val" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />

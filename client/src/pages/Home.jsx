@@ -1,12 +1,17 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import BottomNavbar from '../components/BottomNavbar';
+import HomeCard from '../components/HomeCard';
+import Graphslide from '../components/Graphslide';
 
 const Home = () => {
   return (
     <>
     <Navbar/>
-    <h1 style={{marginTop:"15vh"}}>Home</h1>
+    <div className='flex justify-center p-3 mt-4'>
+      <HomeCard/>
+    </div>
+    {/* <Graphslide/> */}
     <BottomNavbar />
     </>
   )
